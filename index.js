@@ -16,7 +16,7 @@ connectToMongoDB().then(() => {
   app.use('/auth', userRoutes);
   app.use('/contact', contactRoutes);
 
-  const port = process.env.PORT || 3001;
+  const port = process.env.PORT || 2200;
 
   app.listen(port, () => {
     console.log(`Node API is running on port ${port}`);
