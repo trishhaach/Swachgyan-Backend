@@ -18,6 +18,11 @@ connectToMongoDB().then(() => {
 
   const port = process.env.PORT || 2200;
 
+  app.get('/', (req, res) => {
+    res.send('It works');
+  });
+
+
   app.listen(port, () => {
     console.log(`Node API is running on port ${port}`);
   });
