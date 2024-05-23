@@ -10,9 +10,10 @@ const app = express();
 
 connectToMongoDB().then(() => {
   app.use(express.json());
-  app.use(cors());
-
-  app.use(bodyParser.json());
+  app.use(cors({ 
+    origin: ["https://swachgyaan.vercel.app/", "http://localhost:3000"] 
+  }));
+    app.use(bodyParser.json());
 
   app.use('/auth', userRoutes);
   app.use('/contact', contactRoutes);
