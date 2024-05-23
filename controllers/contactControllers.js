@@ -28,9 +28,9 @@ exports.submitContactForm = async (req, res) => {
       }
     });
     await transporter.sendMail({
-      from: email, // Sender email address (the user who filled out the form)
+      from: req.body.email, // Sender email address (the user who filled out the form)
       to: 'swachgyaan@gmail.com', // Receiver email address
-      subject: subject,
+      subject: req.body.subject,
       text: `Message: ${message}`
     });
 
