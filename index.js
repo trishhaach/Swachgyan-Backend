@@ -11,7 +11,9 @@ const app = express();
 connectToMongoDB().then(() => {
   app.use(express.json());
   app.use(cors({ 
-    origin: ["https://swachgyaan.vercel.app/", "http://localhost:3000"] 
+    origin: ["https://swachgyaan.vercel.app", "http://localhost:3000"],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // You can specify allowed HTTP methods
+    allowedHeaders: ['Content-Type', 'Authorization']
   }));
     app.use(bodyParser.json());
 
