@@ -7,15 +7,18 @@ const bodyParser = require("body-parser");
 const cors = require('cors');
 
 const app = express();
-
+const corsOpts = {
+  origin: '*',
+  credentials: true,
+  methods: ['GET','POST','HEAD','PUT','PATCH','DELETE'],
+  allowedHeaders: ['Content-Type'],
+  exposedHeaders: ['Content-Type']
+};
 connectToMongoDB().then(() => {
   app.use(express.json());
-  app.use(cors({ 
-    origin: ["https://swachgyaan.vercel.app", "http://localhost:3000"],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // You can specify allowed HTTP methods
-    allowedHeaders: ['Content-Type', 'Authorization']
-  }));
-    app.use(bodyParser.json());
+  app.use(cors(corsOpts));
+
+  app.use(bodyParser.json());
 
   app.use('/auth', userRoutes);
   app.use('/contact', contactRoutes);
