@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const { connectToMongoDB } = require("./config/database");
 const userRoutes = require('./routes/userRoutes');
@@ -21,7 +22,6 @@ connectToMongoDB().then(() => {
   app.get('/', (req, res) => {
     res.send('It works');
   });
-
 
   app.listen(port, () => {
     console.log(`Node API is running on port ${port}`);
