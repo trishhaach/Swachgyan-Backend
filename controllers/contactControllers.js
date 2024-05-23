@@ -19,31 +19,23 @@ exports.submitContactForm = async (req, res) => {
     // Sending email
     const transporter = nodemailer.createTransport({
       service: 'gmail',
+      host:'smtp.gmail.com',
+      test:465,
       auth: {
-        user: process.env.EMAIL_USER, // Your Gmail email address from environment variable
-        pass: process.env.EMAIL_PASS  // Your Gmail password from environment variable
+        user: 'swachgyaan@gmail.com',
+        pass: 'agdg jsut iwss zecr', // Your Gmail password from environment variable
       }
     });
-
-    const mailOptions = {
+    await transporter.sendMail({
       from: email, // Sender email address (the user who filled out the form)
-      to: 'swachyaan@gmail.com', // Receiver email address
+      to: 'swachgyaan@gmail.com', // Receiver email address
       subject: subject,
-      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
-    };
-
-    transporter.sendMail(mailOptions, function(error, info){
-      if (error) {
-        console.error("Error sending email:", error);
-        return res.status(500).json({ message: "Failed to send email" });
-      } else {
-        console.log("Email sent: " + info.response);
-        res.status(201).json({ message: "Contact form submitted successfully" });
-      }
+      text: `Message: ${message}`
     });
 
+    console.log("Confirmation email sent successfully");
   } catch (error) {
-    console.error("Error submitting contact form:", error);
-    res.status(500).json({ message: "Internal server error" });
+    console.error("Error sending confirmation email:", error);
+    throw new Error("Error occurred while sending confirmation email.");
   }
-};
+}
