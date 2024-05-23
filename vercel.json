@@ -13,14 +13,8 @@
       }
     ],
     "functions": {
-      "api/test.js": {
+      "controller/*.js": {
         "maxDuration": 30 
-      },
-      "api/*.js": {
-        "maxDuration": 15 
-      },
-      "src/api/*.js": {
-        "maxDuration": 25 
       }
     }
   }

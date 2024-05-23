@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 const ContactModel = require("../models/contactmodel");
-
+export const maxDuration = 30; 
 exports.submitContactForm = async (req, res) => {
   try {
     const { name, email, subject, message } = req.body;
