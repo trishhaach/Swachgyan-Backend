@@ -1,6 +1,6 @@
 # Swachgyan Backend
 
-Welcome to the backend repository for Swachgyan, a kids learning website designed for grade 5 and 6 students. Swachgyan aims to teach children about waste segregation and management through fun, interactive, and engaging games. This project was created for the TechLeadHers 2024 competition organized by Aaviyanta Foundation in Ward-17.
+Swachgyan, a kids learning website designed for grade 5 and 6 students. Swachgyan aims to teach children about waste segregation and management through fun, interactive, and engaging games. This project was created for the TechLeadHers 2024 competition organized by Aaviyanta Foundation in Ward-17.
 
 ## Introduction
 
@@ -48,11 +48,5 @@ The API documentation provides detailed information about the available endpoint
 ### Contact Form
 
 - **POST** `/submit`: Submit a contact form.
-
-## Conclusion
-
-Thank you for visiting the Swachgyan backend repository. We hope this project helps make learning about waste management fun and engaging for children. If you have any questions or suggestions, feel free to contact us!
-
-Together, we can make a difference in how the next generation perceives and handles waste management.
 
 
